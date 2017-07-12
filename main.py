@@ -51,27 +51,37 @@ def signup():
     usrname_error=''
     passwrd_error=''
     vpasswrd_error=''
+    error_count = 0
 
     if not empty_field(usrname):
         usrname_error="Enter a valid username."
+        error_count=error_count+1
 
-    elif not empty_field(passwrd):
+    if not empty_field(passwrd):
         passwrd_error="Enter a valid password."
+        error_count=error_count+1
 
-    elif not empty_field(vpasswrd):
+    if not empty_field(vpasswrd):
         vpasswrd_error="Password must be verified."
+        error_count=error_count+1
 
-    elif not validate_field(usrname):
+    if not validate_field(usrname):
         usrname_error="Enter a valid username."
+        error_count=error_count+1
 
-    elif not validate_field(passwrd):
+    if not validate_field(passwrd):
         passwrd_error="Enter a valid password"
+        error_count=error_count+1
 
-    elif not match(passwrd, vpasswrd):
+    if not match(passwrd, vpasswrd):
         vpasswrd_error="Passwords must match!"
+        error_count=error_count+1
 
-    elif not vmail(email):
+    if not vmail(email):
         email_error="Please enter a valid email."
+        error_count=error_count+1
+
+    if error_count > 0: 
         return render_template('User_Signup.html', usrname=usrname, passwrd='', vpasswrd='', email=email,
                                 usrname_error=usrname_error, passwrd_error=passwrd_error, vpasswrd_error=vpasswrd_error,
                                 email_error=email_error)
