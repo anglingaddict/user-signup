@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>
-    .error{color:red;}
+    .error{color:red; display:inline-block;}
   </style>
 </head>
 <body>
@@ -13,20 +13,27 @@
     <form action="/signup" method="post">
     <label>Username
         <input name="usrname" type="text" value='{{usrname}}'/>
-    <class="error";'{{usrname_error}}' /label>
+    </label>
+    <p class="error">{{usrname_error}}</p>
 
     <br>
     <label>Password
         <input name="passwrd" type="password" value='{{passwrd}}'/>
-    <class="error"; '{{passwrd_error}}'/label>
+    <class="error"; '{{passwrd_error}}'</label>
+    <p class="error">{{passwrd_error}}</p>
+
     <br>
     <label>Verify Password
         <input name="vpasswrd" type="password" value='{{vpasswrd}}'/>
-    <class="error"; '{{vpasswrd_error}}'/label>
+    </label>
+    <p class="error">{{vpasswrd_error}}</p>
+
     <br>
     <label>Email (optional)
         <input name="email" type="text" value='{{email}}'/>
-    <class="error"; '{{email_error}}'/label>
+    </label>
+    <p class="error">{{email_error}}</p>
+
     <br>
     <input type="submit"/>
     </form>
