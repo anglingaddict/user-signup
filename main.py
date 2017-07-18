@@ -13,7 +13,7 @@ def empty_field(fields):
         return False
 
 def validate_field(fields):
-    
+
     if " " not in fields:
         if len(fields) >3 and len(fields)<20:
             return True
@@ -84,8 +84,9 @@ def signup():
     if not vmail(email):
         email_error="Please enter a valid email."
         error_count=error_count+1
-    print("error count:"+ str(error_count))
-    print(usrname_error)
+
+
+    
     if error_count > 0:
         return render_template('User_Signup.html', usrname=usrname, passwrd='', vpasswrd='', email=email,
                                 usrname_error=usrname_error, passwrd_error=passwrd_error, vpasswrd_error=vpasswrd_error,
